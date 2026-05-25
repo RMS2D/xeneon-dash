@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=2560, initial-scale=1">
+  <title>xeneon-dash</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#050810">
+  <link rel="stylesheet" href="/dash.css">
+</head>
+<body>
+  <div class="boot-splash" id="boot-splash">
+    <div class="boot-lines" id="boot-lines"></div>
+  </div>
+  <div class="strip">
+
+    <header class="top-bar">
+      <span class="seg"><b id="topbar-date">. . .</b><span id="topbar-weekday"></span></span>
+      <span class="seg">UTC <b id="topbar-utc">. . .</b></span>
+      <span class="seg"><span id="topbar-aqhi-scale">AQI</span> <b id="topbar-aqhi" class="aqhi-num">.</b> <span id="topbar-aqhi-band"></span></span>
+      <span class="seg seg-cve" id="topbar-cve-block" style="display:none">TOP CVE <b id="topbar-cve">--</b> <span class="cve-count" id="topbar-cve-count"></span></span>
+      <span class="seg seg-right"><b>oM noM</b> <span id="topbar-feed-count">.</span></span>
+    </header>
+
+    <main class="bottom-row">
+
+      <section class="col col-clocks" data-status="cold">
+        <div class="tile tile-primary">
+          <span class="label">--</span>
+          <div class="big">
+            <span id="clock-primary-time">--:--</span><span class="med accent" id="clock-primary-sec">:--</span><span class="ampm-inline accent" id="clock-primary-ampm">--</span>
+          </div>
+        </div>
+        <div class="tile tile-secondary">
+          <span class="label">--</span>
+          <div class="med-big">
+            <span id="clock-secondary-time">--:--</span> <span class="small" id="clock-secondary-day">---</span>
+          </div>
+          <div class="secondary-hud" id="secondary-hud" data-status="offline">
+            <span class="hud-text" id="secondary-hud-text">--</span>
+            <span class="small" id="clock-secondary-offset">+--h</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="col col-weather" data-status="cold">
+        <span class="label">Weather</span>
+        <a class="alert-banner" id="alert-banner" style="display:none" target="_blank" rel="noopener"></a>
+        <div class="row-baseline">
+          <span class="big" id="weather-temp">--&deg;</span>
+          <span class="weather-icon" id="weather-icon"></span>
+          <span class="small" id="weather-meta">. . .</span>
+        </div>
+        <span class="small" id="weather-summary">. . .</span>
+        <div class="tomorrow-tile" id="tomorrow-tile" style="display:none">
+          <span class="label">Tomorrow . <span id="tomorrow-weekday"></span></span>
+          <div class="tomorrow-row">
+            <span class="tomorrow-icon" id="tomorrow-icon"></span>
+            <div class="tomorrow-temps"><b id="tomorrow-high">--</b>°<span class="dim"> / <span id="tomorrow-low">--</span>°</span></div>
+          </div>
+          <span class="tomorrow-desc" id="tomorrow-desc">. . .</span>
+          <span class="small accent" id="tomorrow-precip"></span>
+        </div>
+        <span class="label sub-label">Next 8 hours</span>
+        <div class="hourly-strip" id="weather-hourly"></div>
+      </section>
+
+      <section class="col col-astro" data-status="cold">
+        <span class="label">Astro</span>
+        <div class="astro-meta">
+          <div><span class="meta-key">Sun</span> <span id="astro-sunrise">--:--</span> &rarr; <span class="accent" id="astro-sunset">--:--</span> <span class="sunset-countdown" id="astro-sunset-countdown"></span></div>
+          <div><span class="meta-key">Moon</span> <span id="astro-moon-rise">--:--</span> &rarr; <span id="astro-moon-set">--:--</span> <span class="small dim" id="astro-moon-phase"></span></div>
+        </div>
+        <div class="arc sun-arc" id="astro-arc">
+          <div class="sun-dot hidden" id="sun-dot"></div>
+        </div>
+        <div class="arc moon-arc" id="moon-arc">
+          <svg class="moon-marker hidden" id="moon-dot" viewBox="-50 -50 100 100">
+            <defs><clipPath id="moonMarkerClip"><circle cx="0" cy="0" r="48"/></clipPath></defs>
+            <circle cx="0" cy="0" r="48" fill="#dde8f2"/>
+            <path id="moon-marker-dark" d="" fill="#0a1420" clip-path="url(#moonMarkerClip)" opacity="0.92"/>
+            <circle cx="0" cy="0" r="48" fill="none" stroke="rgba(0,180,255,0.5)" stroke-width="0.8"/>
+          </svg>
+        </div>
+      </section>
+
+      <section class="col col-feed" data-status="cold">
+        <span class="label">Security feed . omnomfeeds</span>
+        <ul class="feed-list" id="feed-list">
+          <li class="feed-line skeleton">. . . loading . . .</li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="/dash.js"></script>
+</body>
+</html>

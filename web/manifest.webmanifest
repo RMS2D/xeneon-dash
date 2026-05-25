@@ -1,0 +1,13 @@
+{
+  "name": "xeneon-dash",
+  "short_name": "xeneon-dash",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050810",
+  "theme_color": "#050810",
+  "orientation": "any",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

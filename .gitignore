@@ -1,0 +1,10 @@
+*.exe
+*.exe~
+dist/
+logs/
+.superpowers/
+.claude/
+docs/superpowers/
+config.json
+config.local.json
+*.zip
